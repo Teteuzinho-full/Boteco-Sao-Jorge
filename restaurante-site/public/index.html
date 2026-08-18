@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boteco São Jorge | Gastrobar em Blumenau/SC — Chopp gelado e comida de boteco</title>
+<meta name="description" content="Boteco São Jorge, gastrobar tradicional em Blumenau/SC. Chopp sempre gelado, comida de boteco feita na hora e música ao vivo de terça a sábado, a partir das 18h.">
+<link rel="canonical" href="https://www.botecosaojorge.com.br/">
+<meta property="og:type" content="restaurant.menu">
+<meta property="og:title" content="Boteco São Jorge | Gastrobar em Blumenau/SC">
+<meta property="og:description" content="Chopp gelado, comida de boteco e música ao vivo. Terça a sábado, a partir das 18h.">
+<meta property="og:image" content="https://www.botecosaojorge.com.br/images/logo-sao-jorge.jpg">
+<meta property="og:url" content="https://www.botecosaojorge.com.br/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="images/logo-sao-jorge.jpg">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Boteco São Jorge",
+  "image": "https://www.botecosaojorge.com.br/images/logo-sao-jorge.jpg",
+  "servesCuisine": "Comida de boteco, gastrobar",
+  "priceRange": "$$",
+  "telephone": "+55-47-99999-9999",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua das Palmeiras, 320",
+    "addressLocality": "Blumenau",
+    "addressRegion": "SC",
+    "addressCountry": "BR"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "18:00",
+    "closes": "00:00"
+  }],
+  "menu": "https://www.botecosaojorge.com.br/cardapio.html",
+  "sameAs": ["https://instagram.com/botecosaojorge", "https://facebook.com/botecosaojorge"]
+}
+</script>
+<!-- Google Analytics 4 (placeholder) — substitua G-XXXXXXXXXX pelo seu ID -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+<!-- Google Search Console verification (placeholder) -->
+<!-- <meta name="google-site-verification" content="SEU_CODIGO_AQUI"> -->
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="images/logo-sao-jorge.jpg" alt="Boteco São Jorge">
+      <div class="brand-text">
+        <strong>Boteco São Jorge</strong>
+        <span>Gastrobar · Blumenau/SC</span>
+      </div>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" class="active">Início</a>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="reservas.html">Reservas</a>
+      <a href="blog.html">Novidades</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="header-actions">
+      <a href="cardapio.html" class="btn btn-outline">Ver Cardápio</a>
+      <button class="cart-btn" id="cartBtn" aria-label="Abrir carrinho">
+        🛒<span class="cart-count" id="cartCount0" style="display:none">0</span>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Início</a>
+    <a href="cardapio.html">Cardápio</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="reservas.html">Reservas</a>
+    <a href="blog.html">Novidades</a>
+    <a href="contato.html">Contato</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-content">
+    <span class="status-badge" id="openStatusBadge">● Aberto agora</span>
+    <div class="eyebrow">Gastrobar · Blumenau/SC · Ter a Sáb, 18h</div>
+    <h1>Chopp gelado, <em>comida de boteco</em> e a melhor roda do bairro.</h1>
+    <p>Tradição de bar de esquina com cozinha caprichada e música ao vivo. Desde sempre reunindo amigos ao redor da mesa certa.</p>
+    <div class="hero-ctas">
+      <a href="cardapio.html" class="btn btn-primary">Ver Cardápio</a>
+      <a href="https://wa.me/554799999999" target="_blank" rel="noopener" class="btn btn-ghost" data-wa-click>Falar no WhatsApp</a>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge"><div><strong>21,6 mil</strong><span>Seguidores</span></div></div>
+      <div class="hero-badge"><div><strong>+13 anos</strong><span>De boteco</span></div></div>
+      <div class="hero-badge"><div><strong>Ter–Sáb</strong><span>A partir das 18h</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Direto da chapa</div>
+        <h2>Pratos em destaque</h2>
+      </div>
+      <p>Os queridinhos da casa — os que mais saem pras mesas todo fim de tarde.</p>
+    </div>
+    <div class="grid-4" id="featuredDishes"></div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">O cardápio</div>
+        <h2>Categorias</h2>
+      </div>
+      <p>Do petisco ao drink autoral — tudo pensado pra acompanhar boas conversas.</p>
+    </div>
+    <div class="grid-3" id="categoryCards"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <img src="images/interior-boteco.jpg" alt="Ambiente interno do Boteco São Jorge" onerror="this.src='images/logo-sao-jorge.jpg'">
+    <div class="split-text">
+      <div class="eyebrow">Nossa história</div>
+      <h2 style="margin-bottom:20px; font-size:36px;">Um boteco de bairro que virou point da cidade</h2>
+      <p>O Boteco São Jorge nasceu da vontade simples de servir uma cerveja gelada e uma comida boa, sem cerimônia. Batizado em homenagem ao santo protetor, carrega no nome a ideia de força e coragem — a mesma que colocamos em cada prato que sai da nossa cozinha.</p>
+      <p>Hoje somos ponto de encontro em Blumenau: mesa de terça a sábado, chopp sempre no ponto e uma programação de música ao vivo que já virou tradição entre os frequentadores.</p>
+      <p class="signature">"Aqui, quem chega de fora vira família rapidinho."</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Por que o São Jorge</div>
+        <h2>Nossos diferenciais</h2>
+      </div>
+    </div>
+  </div>
+  <div class="feat-grid">
+    <div class="feat">
+      <div class="medallion"></div>
+      <h3>Chopp sempre gelado</h3>
+      <p>Câmara própria e giro rápido — o copo sai na temperatura certa, sempre.</p>
+    </div>
+    <div class="feat">
+      <div class="medallion"></div>
+      <h3>Cozinha na hora</h3>
+      <p>Nada de industrializado: petiscos e pratos preparados no momento do pedido.</p>
+    </div>
+    <div class="feat">
+      <div class="medallion"></div>
+      <h3>Música ao vivo</h3>
+      <p>Samba, pagode e clássicos do boteco pra animar a noite, com programação fixa.</p>
+    </div>
+    <div class="feat">
+      <div class="medallion"></div>
+      <h3>Ambiente família</h3>
+      <p>Espaço acolhedor, recomendado para maiores de 13 anos acompanhados.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Agenda</div>
+        <h2>Shows de samba & música ao vivo</h2>
+        <p style="margin-top:8px;">Rodas de samba, pagode e apresentações ao vivo fazem parte da rotina do São Jorge.</p>
+      </div>
+      <a href="blog.html" class="btn btn-outline">Ver agenda completa</a>
+    </div>
+    <div class="event-strip" id="eventStrip"></div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Quem já passou por aqui</div>
+        <h2>O que dizem sobre a gente</h2>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p>"Chopp geladíssimo e o Rango de Boteco é imperdível. Viramos clientes fixos das quintas."</p>
+        <div class="testi-name">— Camila R.</div>
+      </div>
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p>"Ambiente gostoso, atendimento rápido e a picanha na chapa é de outro nível."</p>
+        <div class="testi-name">— Fernando T.</div>
+      </div>
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p>"O samba de sábado é imperdível. Já é praxe reunir a turma no São Jorge."</p>
+        <div class="testi-name">— Juliana M.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">@botecosaojorge</div>
+        <h2>Segue lá no Instagram</h2>
+      </div>
+      <a href="https://instagram.com/botecosaojorge" target="_blank" rel="noopener" class="btn btn-outline">Seguir</a>
+    </div>
+    <div class="insta-grid" id="instaGrid"></div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="wrap">
+    <h2>Bora garantir sua mesa?</h2>
+    <p>Reserve com antecedência e evite fila, principalmente nos dias de música ao vivo.</p>
+    <a href="reservas.html" class="btn btn-primary">Reservar Mesa</a>
+  </div>
+</div>
+
+<footer class="site-footer" id="footer"></footer>
+
+<!-- Cart Drawer -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h3>Seu pedido</h3>
+    <button class="close-btn" id="closeCartBtn" aria-label="Fechar carrinho">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-summary">
+    <div class="summary-row"><span>Subtotal</span><span id="cartSubtotal">R$ 0,00</span></div>
+    <div class="summary-row total"><span>Total</span><span id="cartTotal">R$ 0,00</span></div>
+    <button class="btn btn-primary" id="goCheckout" style="width:100%; justify-content:center; margin-top:16px;" disabled>Finalizar Pedido</button>
+  </div>
+</div>
+
+<!-- Checkout Modal -->
+<div class="modal-overlay" id="checkoutModal">
+  <div class="modal">
+    <div id="checkoutFormWrap">
+      <h3>Finalizar pedido</h3>
+      <form id="checkoutForm" novalidate>
+        <div class="radio-row" style="margin-bottom:20px;">
+          <div class="radio-opt selected" onclick="selectDelivery('retirada', this)">Retirar no local</div>
+          <div class="radio-opt" onclick="selectDelivery('entrega', this)">Entrega</div>
+        </div>
+        <div class="form-group">
+          <label for="custName">Nome completo</label>
+          <input type="text" id="custName" name="custName" required>
+          <div class="error-msg">Informe seu nome.</div>
+        </div>
+        <div class="form-group">
+          <label for="custPhone">Telefone / WhatsApp</label>
+          <input type="tel" id="custPhone" name="custPhone" required>
+          <div class="error-msg">Informe um telefone válido.</div>
+        </div>
+        <div id="addressGroup" style="display:none;">
+          <div class="form-group">
+            <label for="custAddress">Endereço de entrega</label>
+            <input type="text" id="custAddress" name="custAddress">
+          </div>
+          <div class="form-group">
+            <label for="custComplement">Complemento</label>
+            <input type="text" id="custComplement" name="custComplement">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="custPayment">Forma de pagamento</label>
+          <select id="custPayment" name="custPayment">
+            <option>Pix</option>
+            <option>Cartão de crédito</option>
+            <option>Cartão de débito</option>
+            <option>Dinheiro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="custNotes">Observações</label>
+          <textarea id="custNotes" name="custNotes" rows="3"></textarea>
+        </div>
+        <div id="cartFeeRow" class="summary-row"><span>Taxa de entrega</span><span class="fee-val">R$ 0,00</span></div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:10px;">Enviar pedido via WhatsApp</button>
+      </form>
+    </div>
+    <div class="success-msg" id="checkoutSuccess" style="display:none;">
+      <div class="medallion"></div>
+      <h3>Pedido enviado!</h3>
+      <p>Confirme o envio pelo WhatsApp que abrimos pra você. Em instantes nossa equipe confirma o pedido.</p>
+      <button class="btn btn-outline" onclick="closeCheckout()" style="margin-top:20px;">Fechar</button>
+    </div>
+    <button class="close-btn" id="closeCheckoutBtn" style="position:absolute; top:24px; right:24px;">✕</button>
+  </div>
+</div>
+
+<a href="https://wa.me/554799999999" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Falar no WhatsApp" data-wa-click>
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.8.9-3.1-.2-.3C4.4 14.8 4 13.4 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8zm4.4-5.9c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.2-.2-.2-.4-.3z"/></svg>
+</a>
+
+<div class="mobile-cta-bar">
+  <a href="cardapio.html" class="mcta-btn primary">Ver Cardápio</a>
+  <a href="https://wa.me/554799999999" target="_blank" rel="noopener" class="mcta-btn whatsapp" data-wa-click>WhatsApp</a>
+</div>
+<script src="js/data.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/app.js"></script>
+<script>
+  document.getElementById("cartCount0").id = "cartCountPlaceholder";
+  // Featured dishes (one per category, first item)
+  const featured = document.getElementById("featuredDishes");
+  const picks = [MENU[1].items[0], MENU[2].items[0], MENU[0].items[0], MENU[5].items[0]];
+  featured.innerHTML = picks.map(i => `
+    <div class="dish-card">
+      <div class="dish-img"><img src="images/dishes/${i.img}" alt="${i.name}" onerror="this.src='images/logo-sao-jorge.jpg'"><span class="dish-tag">Destaque</span></div>
+      <div class="dish-body">
+        <h3>${i.name}</h3><p>${i.desc}</p>
+        <div class="dish-row"><span class="price">R$ ${i.price.toFixed(2)}</span>
+        <button class="add-btn" aria-label="Adicionar" onclick='addToCart(${JSON.stringify(i)})'>+</button></div>
+      </div>
+    </div>`).join("");
+
+  // Category cards
+  const catWrap = document.getElementById("categoryCards");
+  catWrap.innerHTML = MENU.slice(0,3).map(c => `
+    <div class="dish-card">
+      <div class="dish-img"><img src="images/dishes/${c.items[0].img}" alt="${c.category}" onerror="this.src='images/logo-sao-jorge.jpg'"></div>
+      <div class="dish-body">
+        <h3>${c.category}</h3><p>${c.desc}</p>
+        <a href="cardapio.html#${c.slug}" class="btn btn-outline" style="width:100%; justify-content:center;">Ver categoria</a>
+      </div>
+    </div>`).join("");
+
+  // Events strip (shows de samba, pagode e música ao vivo)
+  document.getElementById("eventStrip").innerHTML = EVENTS.map(e => `
+    <div class="event-card">
+      <div class="dish-img"><img src="images/dishes/${e.img}" alt="${e.name}" onerror="this.onerror=null;this.src='images/logo-sao-jorge.jpg'"><span class="dish-tag">${e.tag}</span></div>
+      <div class="dish-body"><div class="event-day">${e.day}</div><h3 style="font-size:16px">${e.name}</h3><p style="font-size:13px; color:var(--cream-dim); margin-top:6px;">${e.desc}</p></div>
+    </div>`).join("");
+
+  // Instagram grid (placeholders)
+  document.getElementById("instaGrid").innerHTML = Array.from({length:6}).map((_,i) => `
+    <a href="https://instagram.com/botecosaojorge" target="_blank" rel="noopener">
+      <img src="images/dishes/insta-${i+1}.jpg" alt="Post do Instagram" onerror="this.src='images/logo-sao-jorge.jpg'">
+    </a>`).join("");
+</script>
+</body>
+</html>

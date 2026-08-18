@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardápio | Boteco São Jorge — Blumenau/SC</title>
+<meta name="description" content="Confira o cardápio completo do Boteco São Jorge: petiscos, pratos principais, hambúrgueres, sobremesas, chopp e drinks autorais.">
+<link rel="canonical" href="https://www.botecosaojorge.com.br/cardapio.html">
+<link rel="icon" href="images/logo-sao-jorge.jpg">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json" id="menuSchema">{}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="images/logo-sao-jorge.jpg" alt="Boteco São Jorge">
+      <div class="brand-text"><strong>Boteco São Jorge</strong><span>Gastrobar · Blumenau/SC</span></div>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Início</a>
+      <a href="cardapio.html" class="active">Cardápio</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="reservas.html">Reservas</a>
+      <a href="blog.html">Novidades</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="header-actions">
+      <a href="reservas.html" class="btn btn-outline">Reservar Mesa</a>
+      <button class="cart-btn" id="cartBtn" aria-label="Abrir carrinho">🛒<span class="cart-count" style="display:none">0</span></button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Início</a><a href="cardapio.html">Cardápio</a><a href="sobre.html">Sobre</a>
+    <a href="reservas.html">Reservas</a><a href="blog.html">Novidades</a><a href="contato.html">Contato</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Início</a> / Cardápio</div>
+    <h1>Cardápio</h1>
+  </div>
+</section>
+
+<section style="padding-top:48px;">
+  <div class="wrap">
+    <div class="menu-toolbar">
+      <div class="search-box">
+        🔍 <input type="text" id="searchInput" placeholder="Buscar prato, ex: burger, chopp, risoto...">
+      </div>
+      <div class="filter-chips" id="filterChips"></div>
+    </div>
+    <div id="menuContent"></div>
+    <div class="no-results" id="noResults">Nenhum prato encontrado. Tente outro termo de busca.</div>
+  </div>
+</section>
+
+<footer class="site-footer" id="footer"></footer>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head"><h3>Seu pedido</h3><button class="close-btn" id="closeCartBtn" aria-label="Fechar carrinho">✕</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-summary">
+    <div class="summary-row"><span>Subtotal</span><span id="cartSubtotal">R$ 0,00</span></div>
+    <div class="summary-row total"><span>Total</span><span id="cartTotal">R$ 0,00</span></div>
+    <button class="btn btn-primary" id="goCheckout" style="width:100%; justify-content:center; margin-top:16px;" disabled>Finalizar Pedido</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="checkoutModal">
+  <div class="modal">
+    <div id="checkoutFormWrap">
+      <h3>Finalizar pedido</h3>
+      <form id="checkoutForm" novalidate>
+        <div class="radio-row" style="margin-bottom:20px;">
+          <div class="radio-opt selected" onclick="selectDelivery('retirada', this)">Retirar no local</div>
+          <div class="radio-opt" onclick="selectDelivery('entrega', this)">Entrega</div>
+        </div>
+        <div class="form-group"><label for="custName">Nome completo</label><input type="text" id="custName" name="custName" required><div class="error-msg">Informe seu nome.</div></div>
+        <div class="form-group"><label for="custPhone">Telefone / WhatsApp</label><input type="tel" id="custPhone" name="custPhone" required><div class="error-msg">Informe um telefone válido.</div></div>
+        <div id="addressGroup" style="display:none;">
+          <div class="form-group"><label for="custAddress">Endereço de entrega</label><input type="text" id="custAddress" name="custAddress"></div>
+          <div class="form-group"><label for="custComplement">Complemento</label><input type="text" id="custComplement" name="custComplement"></div>
+        </div>
+        <div class="form-group">
+          <label for="custPayment">Forma de pagamento</label>
+          <select id="custPayment" name="custPayment"><option>Pix</option><option>Cartão de crédito</option><option>Cartão de débito</option><option>Dinheiro</option></select>
+        </div>
+        <div class="form-group"><label for="custNotes">Observações</label><textarea id="custNotes" name="custNotes" rows="3"></textarea></div>
+        <div id="cartFeeRow" class="summary-row"><span>Taxa de entrega</span><span class="fee-val">R$ 0,00</span></div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:10px;">Enviar pedido via WhatsApp</button>
+      </form>
+    </div>
+    <div class="success-msg" id="checkoutSuccess" style="display:none;">
+      <div class="medallion"></div><h3>Pedido enviado!</h3>
+      <p>Confirme o envio pelo WhatsApp que abrimos pra você.</p>
+      <button class="btn btn-outline" onclick="closeCheckout()" style="margin-top:20px;">Fechar</button>
+    </div>
+    <button class="close-btn" id="closeCheckoutBtn" style="position:absolute; top:24px; right:24px;">✕</button>
+  </div>
+</div>
+
+<a href="https://wa.me/554799999999" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Falar no WhatsApp" data-wa-click>
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.8.9-3.1-.2-.3C4.4 14.8 4 13.4 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8zm4.4-5.9c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.2-.2-.2-.4-.3z"/></svg>
+</a>
+
+<div class="mobile-cta-bar">
+  <button class="mcta-btn primary" onclick="openCart()">Meu Pedido</button>
+  <a href="https://wa.me/554799999999" target="_blank" rel="noopener" class="mcta-btn whatsapp" data-wa-click>WhatsApp</a>
+</div>
+<script src="js/data.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/app.js"></script>
+<script>
+  const TAG_LABEL = { veg: "Vegetariano", alerg: "Contém alérgenos" };
+
+  function dishCardHTML(item) {
+    return `
+      <div class="dish-card" data-name="${item.name.toLowerCase()}">
+        <div class="dish-img"><img src="images/dishes/${item.img}" alt="${item.name}" onerror="this.src='images/logo-sao-jorge.jpg'"></div>
+        <div class="dish-body">
+          ${item.tags.length ? `<div class="tag-row">${item.tags.map(t => `<span class="tag ${t}">${TAG_LABEL[t]}</span>`).join("")}</div>` : ""}
+          <h3>${item.name}</h3><p>${item.desc}</p>
+          <div class="dish-row">
+            <span class="price">R$ ${item.price.toFixed(2)}</span>
+            <button class="add-btn" aria-label="Adicionar ao pedido" onclick='addToCart(${JSON.stringify(item)})'>+</button>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function renderMenu() {
+    const content = document.getElementById("menuContent");
+    content.innerHTML = MENU.map(cat => `
+      <div class="menu-category" id="${cat.slug}" data-cat="${cat.slug}">
+        <h2>${cat.category}</h2>
+        <p class="cat-desc">${cat.desc}</p>
+        <div class="menu-grid">${cat.items.map(dishCardHTML).join("")}</div>
+      </div>`).join("");
+  }
+
+  function renderChips() {
+    const chips = document.getElementById("filterChips");
+    chips.innerHTML = `<button class="chip active" data-cat="all">Tudo</button>` +
+      MENU.map(c => `<button class="chip" data-cat="${c.slug}">${c.category}</button>`).join("");
+    chips.addEventListener("click", (e) => {
+      const btn = e.target.closest(".chip");
+      if (!btn) return;
+      chips.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+      btn.classList.add("active");
+      const cat = btn.dataset.cat;
+      document.querySelectorAll(".menu-category").forEach(sec => {
+        sec.style.display = (cat === "all" || sec.dataset.cat === cat) ? "" : "none";
+      });
+      if (cat !== "all") document.getElementById(cat).scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  function setupSearch() {
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+      const term = e.target.value.trim().toLowerCase();
+      let anyVisible = false;
+      document.querySelectorAll(".menu-category").forEach(sec => {
+        let sectionHasMatch = false;
+        sec.querySelectorAll(".dish-card").forEach(card => {
+          const match = card.dataset.name.includes(term);
+          card.style.display = match ? "" : "none";
+          if (match) sectionHasMatch = true;
+        });
+        sec.style.display = term === "" ? "" : (sectionHasMatch ? "" : "none");
+        if (sectionHasMatch || term === "") anyVisible = true;
+      });
+      document.getElementById("noResults").style.display = anyVisible ? "none" : "block";
+      if (term !== "") {
+        document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+        document.querySelector('.chip[data-cat="all"]').classList.add("active");
+      }
+    });
+  }
+
+  // Build Menu/MenuItem schema for SEO
+  function buildSchema() {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Menu",
+      "name": "Cardápio Boteco São Jorge",
+      "hasMenuSection": MENU.map(c => ({
+        "@type": "MenuSection",
+        "name": c.category,
+        "hasMenuItem": c.items.map(i => ({
+          "@type": "MenuItem",
+          "name": i.name,
+          "description": i.desc,
+          "offers": { "@type": "Offer", "price": i.price.toFixed(2), "priceCurrency": "BRL" }
+        }))
+      }))
+    };
+    document.getElementById("menuSchema").textContent = JSON.stringify(schema);
+  }
+
+  renderChips();
+  renderMenu();
+  setupSearch();
+  buildSchema();
+
+  // Deep-link to category via hash
+  if (location.hash) {
+    const slug = location.hash.replace("#", "");
+    const chip = document.querySelector(`.chip[data-cat="${slug}"]`);
+    if (chip) chip.click();
+  }
+</script>
+</body>
+</html>
