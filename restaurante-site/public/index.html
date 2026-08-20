@@ -25,9 +25,10 @@
   "telephone": "+55-47-99999-9999",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Rua das Palmeiras, 320",
+    "streetAddress": "Rua Curt Hering, 149",
     "addressLocality": "Blumenau",
-    "addressRegion": "SC",
+    "addressRegion": "Santa Catarina",
+    "postalCode": "89010-030",
     "addressCountry": "BR"
   },
   "openingHoursSpecification": [{
@@ -109,6 +110,15 @@
     </div>
   </div>
 </section>
+
+<div class="cta-band" style="background:linear-gradient(120deg, var(--charcoal-soft) 0%, var(--charcoal) 100%); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;">Terça, quarta e quinta</div>
+    <h2>Sequência de Petiscos — R$ 44,90 por pessoa</h2>
+    <p>Três tempos de petiscos da casa, com direito a repetir os 2 que você mais gostou.</p>
+    <a href="cardapio.html#petiscos" class="btn btn-primary">Ver a sequência completa</a>
+  </div>
+</div>
 
 <section>
   <div class="wrap">
@@ -334,7 +344,7 @@
   document.getElementById("cartCount0").id = "cartCountPlaceholder";
   // Featured dishes (one per category, first item)
   const featured = document.getElementById("featuredDishes");
-  const picks = [MENU[1].items[0], MENU[2].items[0], MENU[0].items[0], MENU[5].items[0]];
+  const picks = [MENU[1].items[0], MENU[3].items[1], MENU[0].items[1], MENU[3].items[2]];
   featured.innerHTML = picks.map(i => `
     <div class="dish-card">
       <div class="dish-img"><img src="images/dishes/${i.img}" alt="${i.name}" onerror="this.src='images/logo-sao-jorge.jpg'"><span class="dish-tag">Destaque</span></div>
@@ -363,10 +373,14 @@
       <div class="dish-body"><div class="event-day">${e.day}</div><h3 style="font-size:16px">${e.name}</h3><p style="font-size:13px; color:var(--cream-dim); margin-top:6px;">${e.desc}</p></div>
     </div>`).join("");
 
-  // Instagram grid (placeholders)
-  document.getElementById("instaGrid").innerHTML = Array.from({length:6}).map((_,i) => `
+  // Instagram grid (fotos reais do local e dos eventos)
+  const instaPhotos = [
+    "images/hero-bg.jpg", "images/interior-boteco.jpg", "images/bar-interior.jpg",
+    "images/dishes/evento-samba.jpg", "images/dishes/evento-pagode.jpg", "images/altar-sao-jorge.jpg"
+  ];
+  document.getElementById("instaGrid").innerHTML = instaPhotos.map(src => `
     <a href="https://instagram.com/botecosaojorge" target="_blank" rel="noopener">
-      <img src="images/dishes/insta-${i+1}.jpg" alt="Post do Instagram" onerror="this.src='images/logo-sao-jorge.jpg'">
+      <img src="${src}" alt="Post do Instagram" onerror="this.onerror=null;this.src='images/logo-sao-jorge.jpg'">
     </a>`).join("");
 </script>
 </body>

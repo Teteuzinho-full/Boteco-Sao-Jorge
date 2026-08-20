@@ -45,6 +45,15 @@
   </div>
 </section>
 
+<section style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="dish-card sequencia-card" id="sequenciaCard">
+      <div class="dish-img" style="aspect-ratio:auto; height:100%;"><img src="images/sequencia-petiscos.jpg" alt="Sequência de Petiscos" style="height:100%; object-fit:cover;" onerror="this.onerror=null;this.src='images/logo-sao-jorge.jpg'"></div>
+      <div class="dish-body" style="padding:32px;" id="sequenciaBody"></div>
+    </div>
+  </div>
+</section>
+
 <section style="padding-top:48px;">
   <div class="wrap">
     <div class="menu-toolbar">
@@ -206,6 +215,25 @@
   renderMenu();
   setupSearch();
   buildSchema();
+
+  // Sequência de Petiscos — seção especial (não é item de carrinho)
+  document.getElementById("sequenciaBody").innerHTML = `
+    <div class="eyebrow">Experiência do boteco</div>
+    <h2 style="font-size:26px; color:var(--cream); margin-bottom:6px;">${SEQUENCIA_PETISCOS.title}</h2>
+    <p style="color:var(--cream-dim); font-size:13.5px; margin-bottom:18px;">${SEQUENCIA_PETISCOS.days}</p>
+    ${SEQUENCIA_PETISCOS.rounds.map(r => `
+      <div style="margin-bottom:14px;">
+        <div style="font-family:var(--eyebrow); font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--gold); margin-bottom:6px;">${r.name}</div>
+        <ul style="list-style:disc; padding-left:18px;">
+          ${r.items.map(i => `<li style="color:var(--cream-dim); font-size:13.5px; margin-bottom:3px;">${i}</li>`).join("")}
+        </ul>
+      </div>`).join("")}
+    <p style="color:var(--gold); font-style:italic; font-size:13px; margin:14px 0 18px;">${SEQUENCIA_PETISCOS.note}</p>
+    <div class="dish-row">
+      <span class="price">R$ ${SEQUENCIA_PETISCOS.price.toFixed(2)} <span style="font-size:12px; color:var(--cream-dim); font-family:var(--body);">${SEQUENCIA_PETISCOS.unit}</span></span>
+      <a href="https://wa.me/554799999999" target="_blank" rel="noopener" class="btn btn-primary" data-wa-click>Reservar essa noite</a>
+    </div>
+  `;
 
   // Deep-link to category via hash
   if (location.hash) {

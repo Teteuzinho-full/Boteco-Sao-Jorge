@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h4>Contato</h4>
           <a href="tel:+5547999999999" data-tel-click>(47) 99999-9999</a>
           <p>contato@botecosaojorge.com.br</p>
-          <p>Rua das Palmeiras, 320 — Velha, Blumenau/SC</p>
+          <p>Rua Curt Hering, 149, Blumenau, Santa Catarina, 89010-030</p>
         </div>
         <div class="footer-col">
           <h4>Horário</h4>
